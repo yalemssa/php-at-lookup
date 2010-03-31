@@ -36,6 +36,14 @@ class ATLookup
   }
   
   /**
+   * Destructor method for ATLookup class.
+   */
+  function __destruct()
+  {
+    $this->_db->close();
+  }
+  
+  /**
    * Sanitize a given string using the MySQL real_escape_string function
    * 
    * @param string $value
