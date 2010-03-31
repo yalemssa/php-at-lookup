@@ -9,5 +9,7 @@ The project's primary repository is http://github.com/yalemssa/php-at-lookup .
 This code has been tested on the following versions of the Toolkit:
     * Archivists' Toolkit 2.0.0 update 3
 
+An example of the code in use can be found in the file palletreport.php.
+
 Please send any comments or feedback to Mark Matienzo via the Archivists'
 Toolkit Users Group list: https://mailman.ucsd.edu/mailman/listinfo/atug-l

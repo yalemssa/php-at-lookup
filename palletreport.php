@@ -30,6 +30,7 @@ $pallets = array('2-1', '4-1', '4-2', '4-3', '4-4');
     <p>To select a column, hold the Control [Ctrl] key and click-and-drag to select text.</p>
     <table border="0" cellspacing="10" cellpadding="10" valign="top">
       <tr><?php foreach ($pallets as $p) echo "<th>Pallet $p</th>"; ?></tr>
+      <tr>
 <?php
 foreach ($pallets as $p) { 
   echo '<td valign="top">';
@@ -48,6 +49,7 @@ foreach ($pallets as $p) {
   echo '</table></td>';
 }
 ?>
-</tr></table>
-</body>
+      </tr>
+    </table>
+  </body>
 </html>

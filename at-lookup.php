@@ -16,6 +16,8 @@
  */ 
 class ATLookup 
 {
+  const version = '0.1';
+  
   private $_db;
   
   /**
