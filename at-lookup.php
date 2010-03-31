@@ -1,4 +1,19 @@
 <?php
+/**
+ * Archivists' Toolkit(TM) PHP Lookup Tools
+ * Copyright (c) 2010 Yale University
+ * All rights reserved.
+ * 
+ * This software is free. You can redistribute it and / or modify it under the
+ * terms of the Educational Community License (ECL)  version 1.0
+ * (http://www.opensource.org/licenses/ecl1.php)
+ *
+ * This software is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the ECL license for more details
+ * about permissions and limitations.
+ *
+ */ 
 class ATLookup 
 {
   private $_db;
@@ -41,6 +56,7 @@ class ATLookup
    * @param string $indicator
    *   location indicator
    * @return mysqli_result
+   *   a mysqli_result set representing matching instances
    */
   function by_coordinate1($label=NULL, $indicator=NULL)
   {
@@ -52,8 +68,8 @@ class ATLookup
       loc.coordinate1AlphaNumIndicator, adi.resourceComponentId
       FROM ArchDescriptionInstances adi
       JOIN LocationsTable AS loc ON adi.locationId = loc.locationId
-      WHERE loc.coordinate1Label LIKE 'pallet'
-        AND loc.coordinate1AlphaNumIndicator = '4-2'
+      WHERE loc.coordinate1Label LIKE '$label'
+        AND loc.coordinate1AlphaNumIndicator = '$indicator'
       GROUP BY adi.barcode
       ORDER BY adi.container1NumericIndicator;";
     
@@ -65,8 +81,8 @@ class ATLookup
    *
    * @param string $componentId
    *   the identifier of a given resource component record
-   * @return string or NULL
-   *   the identified parent resource record's identifier or NULL if not found
+   * @return array
+   *   associative array of parent resource
    */
   function get_resource_from_component($componentId)
   {
@@ -78,10 +94,25 @@ class ATLookup
     $parentid = $result['parentResourceComponentId'];
     if (is_null($parentid))
     {
-      return $result['resourceId'];  
+      return $this->get_resource($result['resourceId']);  
     } else {
       return $this->get_resource_from_component($parentid);
     }
+  }
+  
+  /**
+   * Retrieve a row representing a resource based on its ID
+   *
+   * @param string $resourceId
+   *   the identifier of the resource record
+   * @return array
+   *   associative array representing resource record 
+   */
+  function get_resource($resourceId)
+  {
+    $resourceId = $this->sanitize($resourceId);
+    $q = "SELECT * FROM Resources rsc WHERE rsc.resourceId = '$resourceId';";
+    return $this->_db->query($q)->fetch_assoc();
   }
 }
 
