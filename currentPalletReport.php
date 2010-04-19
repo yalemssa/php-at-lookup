@@ -18,7 +18,11 @@ require 'at-lookup.php';
 require 'at-config.php';
 
 $at = new ATLookup(ATDB_HOST, ATDB_USER, ATDB_PASS, ATDB_DATABASE);
-$pallets = array('2-1', '4-1', '4-2', '4-3', '4-4');
+$pallets = array();
+$palletsdata = $at->get_location_coords_by_label('pallet');
+while ($p = $palletsdata->fetch_assoc()) {
+  $pallets[] = $p['coordinate1AlphaNumIndicator'];
+}
 
 ?>
 <html>

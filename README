@@ -8,7 +8,7 @@ This is a set of PHP classes and code to access data directly out of an
 Archivists' Toolkit database. Currently, the code will only work with MySQL.
 
 This code has been tested on the following versions of the Toolkit:
-    * Archivists' Toolkit 2.0.0 update 3
+    * Archivists' Toolkit 2.0.0 update 3, update 4, and update 5
 
 An example of the code in use can be found in the file palletreport.php.
 

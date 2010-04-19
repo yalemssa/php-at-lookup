@@ -16,7 +16,7 @@
  */ 
 class ATLookup 
 {
-  const version = '0.1';
+  const version = '0.2';
   
   private $_db;
   
@@ -56,6 +56,23 @@ class ATLookup
   private function sanitize($value)
   {
     return $this->_db->real_escape_string($value);
+  }
+  
+  /**
+   * Lookup locations by their first coordinate label.
+   *
+   * @param string $label
+   *   location label
+   * @return mysqli_result
+   *   a mysqli_result set represnting matching locations
+   */
+  function get_location_coords_by_label($label=NULL)
+  {
+    $label = $this->sanitize($label);
+    $q = "SELECT DISTINCT loc.coordinate1AlphaNumIndicator
+      FROM LocationsTable loc
+      WHERE loc.coordinate1Label = '$label'";
+    return $this->_db->query($q);
   }
   
   /**
