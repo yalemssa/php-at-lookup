@@ -1,2 +1,7 @@
+v0.2 Mon Apr 19 17:29:01 EDT 2010
+  * Adds new function get_location_coords_by_label().
+  * Renamed palletreport.php to currentPalletReport.php to reflect Yale's 
+    deployed filename, and added dynamic pallet indicator lookup.
+  
 v0.1 Wed Mar 31 18:12:17 EDT 2010
   * Initial release. Contains Yale-specific code, so implementor beware.
