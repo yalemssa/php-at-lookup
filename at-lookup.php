@@ -16,7 +16,7 @@
  */ 
 class ATLookup 
 {
-  const version = '0.2';
+  const version = '0.3';
   
   private $_db;
   
@@ -71,7 +71,7 @@ class ATLookup
     $label = $this->sanitize($label);
     $q = "SELECT DISTINCT loc.coordinate1AlphaNumIndicator
       FROM LocationsTable loc
-      WHERE loc.coordinate1Label = '$label'";
+      WHERE loc.coordinate1Label LIKE '%$label%';";
     return $this->_db->query($q);
   }
   
@@ -95,7 +95,7 @@ class ATLookup
       loc.coordinate1AlphaNumIndicator, adi.resourceComponentId
       FROM ArchDescriptionInstances adi
       JOIN LocationsTable AS loc ON adi.locationId = loc.locationId
-      WHERE loc.coordinate1Label LIKE '$label'
+      WHERE loc.coordinate1Label LIKE '%$label%'
         AND loc.coordinate1AlphaNumIndicator = '$indicator'
       GROUP BY adi.barcode
       ORDER BY adi.container1NumericIndicator;";

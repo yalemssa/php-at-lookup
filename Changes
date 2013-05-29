@@ -1,3 +1,6 @@
+v0.3 Wed May 29 10:57:40 EDT 2013
+  * Fix LIKE query for for looking up location coordinates
+
 v0.2 Mon Apr 19 17:29:01 EDT 2010
   * Adds new function get_location_coords_by_label().
   * Renamed palletreport.php to currentPalletReport.php to reflect Yale's 
