@@ -1,7 +1,7 @@
 <?php
 /**
  * Archivists' Toolkit(TM) PHP Lookup Tools
- * Copyright (c) 2010 Yale University
+ * Copyright (c) 2010-2013 Yale University
  * All rights reserved.
  * 
  * This software is free. You can redistribute it and / or modify it under the

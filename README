@@ -1,5 +1,5 @@
 Archivists' Toolkit PHP Lookup Tools
-Copyright (c) 2010 Yale University. All rights reserved.
+Copyright (c) 2010-2013 Yale University. All rights reserved.
 http://github.com/yalemssa/php-at-lookup
 
 Released under the Educational Community License, version 1.0.
@@ -8,9 +8,9 @@ This is a set of PHP classes and code to access data directly out of an
 Archivists' Toolkit database. Currently, the code will only work with MySQL.
 
 This code has been tested on the following versions of the Toolkit:
-    * Archivists' Toolkit 2.0.0 update 3-10B
+    * Archivists' Toolkit 2.0.0 (plus subsequent maintenance updates)
 
-An example of the code in use can be found in the file palletreport.php.
+An example of the code in use is in the file currentPalletReport.php.
 
 Please send any comments or feedback to Mark Matienzo via the Archivists'
 Toolkit Users Group list: https://mailman.ucsd.edu/mailman/listinfo/atug-l
